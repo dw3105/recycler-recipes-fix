@@ -20,7 +20,7 @@ One row per clause of `docs/REQUIREMENTS.md`. PASS / FAIL / NOT-TESTED per versi
 | R-10 | PASS | PASS | `tests/game/run.sh` `vanilla-zero` (red on planted always-fix breach, 2026-10-09) |
 | S-1 | PASS | PASS | `test_settings.lua::S-1 excluded > *` (3) |
 | S-2 | PASS | PASS | `test_settings.lua::S-2 self-recycling switch > *` (3) |
-| S-3 | NOT-TESTED | NOT-TESTED | `locale/en/locale.cfg` present; headless load no error; in-game display unchecked |
+| S-3 | PASS | NOT-TESTED | author play-test 2026-10-09, `SA_D0`, 0.1.0: settings text shown, `big-accumulator` recycles with `magnet`; 2.1 not play-tested |
 | L-1 | PASS | PASS | `test_rebuild.lua::L-1 report > log has prefix, counts and per-recipe line` |
 | P-1 | PASS | PASS | lane 002 check `zip-2.0`/`zip-2.1` whitelist assert |
 | P-2 | PASS | PASS | `thumbnail.png` 144x144 from `tools/make_thumbnail.py`, regen byte-identical |
@@ -28,3 +28,5 @@ One row per clause of `docs/REQUIREMENTS.md`. PASS / FAIL / NOT-TESTED per versi
 | P-4 | PASS | n/a | `make full-check` 2026-10-09 on main a4a3e67: added 2, fixed 5, self 1, excluded 0, `full-check-2.0-ok` |
 
 Owner plants after lane 001 merge (2026-10-09): 8 planted breaches in `scripts/rebuild.lua`, each turned 1-4 owner tests red; restored tree 17/17 green per version.
+
+Release 2026-10-09: GitHub `v0.1.0` (run `Release v0.1.0` success); mod portal `recycler-recipes-fix` owner `dw3105`, category `tweaks`, releases `0.1.0` (2.0), `0.2.0` (2.1).
