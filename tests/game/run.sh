@@ -39,3 +39,10 @@ PY
 }
 run without 0
 run with 1
+# R-10: built-in mods only plus this mod -> zero changes.
+R=$W/vanilla; rm -rf "$R"; mkdir -p "$R/mods" "$R/config"
+printf "[path]\nread-data=%s/data\nwrite-data=%s\n" "$F" "$R" > "$R/config/config.ini"
+stage "$M" "$R/mods/recycler-recipes-fix"
+"$F/bin/x64/factorio" --config "$R/config/config.ini" --mod-directory "$R/mods" --dump-data > "$R/stdout.txt" 2>&1
+n=$(grep -cE "\[recycler-recipes-fix\] (added|fixed|self-recycling added|excluded): 0$" "$R/factorio-current.log" || true)
+if [ "$n" = 4 ]; then echo "PASS vanilla-zero $FV"; else grep "\[recycler-recipes-fix\]" "$R/factorio-current.log" | head -5; echo "FAIL vanilla-zero $FV"; exit 1; fi
