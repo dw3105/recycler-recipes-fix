@@ -2,7 +2,8 @@
 -- Frozen seam: lanes never edit this file.
 local env = {}
 env.fv = os.getenv("FV") or "2.0"
-local game = os.getenv("HOME") .. "/factorio-" .. env.fv .. "/factorio/data"
+-- Game install root: RRF_FACTORIO_ROOT, else the fixed VM path (works under scratch HOME).
+local game = (os.getenv("RRF_FACTORIO_ROOT") or "/home/dev_zaigraev_gmail_com") .. "/factorio-" .. env.fv .. "/factorio/data"
 local root = debug.getinfo(1, "S").source:sub(2):gsub("tests/offline/env%.lua$", "")
 package.path = root .. "?.lua;" .. game .. "/core/lualib/?.lua;" .. package.path
 env.icon = env.fv == "2.0" and "__quality__/graphics/icons/recycling.png" or "__recycler__/graphics/icons/recycling.png"
