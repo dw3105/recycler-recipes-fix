@@ -1,0 +1,27 @@
+[estate]
+release = "4cc9379b48a328e3907141f60afa470977f08462"
+template = "ae2a0aa00ebacea759031b83f6a38c870da04821350cef61a2d64a32cf4d234a"
+
+[lane]
+task_dir = "docs/tasks"
+claimed_numbers = "docs/tasks/CLAIMED_NUMBERS.md"
+prefix = ""
+audit_dir = ""
+engine = "codex exec"
+label = "recycler-recipes-fix-mod/agent"
+weight_mib = 1024
+weight_cores = 0.5
+suite_label = "recycler-recipes-fix-mod/heavy"
+preflight = true
+max_live_lanes = 2
+
+[verify]
+# lane merge runs this in lane worktree. Offline single tests only (RF-02); headless belongs to integrator.
+# {tests} is never substituted (FND-0002 in local-transcriber), so literal commands.
+default = "make test-one FV=2.0 T='tests/offline/test_rebuild.lua::R-4 still valid > matching game-built recycling keeps same table' && make test-one FV=2.1 T='tests/offline/test_rebuild.lua::R-4 still valid > matching game-built recycling keeps same table'"
+scaffold = "make test-offline"
+ci_collect = "make ci-collect"
+
+[records]
+findings = "docs/FINDINGS.md"
+friction = "docs/FRICTION.md"
