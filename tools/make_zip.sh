@@ -5,14 +5,14 @@ if [[ $# -ne 1 ]]; then
   exit 2
 fi
 fv=$1
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 case "$fv" in
-  2.0) version=$(python3 -I -c 'import json; print(json.load(open("info.json"))["version"])') ;;
+  2.0) version=$(python3 -I -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"])' "$root/info.json") ;;
   2.1)
-    version=$(python3 -I -c 'import json; d=json.load(open("info.json")); a,b,c=map(int,d["version"].split(".")); assert (a,b)==(0,1); print(f"0.2.{c}")')
+    version=$(python3 -I -c 'import json,sys; d=json.load(open(sys.argv[1])); a,b,c=map(int,d["version"].split(".")); assert (a,b)==(0,1); print(f"0.2.{c}")' "$root/info.json")
     ;;
   *) echo "unsupported Factorio version: $fv" >&2; exit 2 ;;
 esac
-root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 "$root/tools/stage.sh" "$fv" "$tmp/stage"

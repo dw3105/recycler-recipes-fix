@@ -4,10 +4,10 @@ One row per clause of `docs/REQUIREMENTS.md`. PASS / FAIL / NOT-TESTED per versi
 
 | ID | 2.0 | 2.1 | Proof |
 |---|---|---|---|
-| T-1 | NOT-TESTED | NOT-TESTED | `make zip` (L004) |
+| T-1 | PASS | PASS | `make zip` 2026-10-09: `recycler-recipes-fix_0.1.0.zip`, `_0.2.0.zip`; each loads headless on its version, 0 errors |
 | T-2 | PASS | PASS | no `control.lua` in tree |
-| T-3 | NOT-TESTED | NOT-TESTED | staged `info.json` (L004) |
-| T-4 | NOT-TESTED | NOT-TESTED | `info.json` curated `(?)` list (L004) |
+| T-3 | PASS | PASS | lane 002 check `zip-2.0`/`zip-2.1`: hard dep `quality >= 2.0.0` / `recycler >= 2.1.0` |
+| T-4 | PASS | n/a | `info.json` 48 `(?)` deps; `make full-check` still runs mod last (same 8 changes) |
 | R-1 | PASS | PASS | offline suite loads game file; headless `tests/game/run.sh` PASS with-fix 2.0 and 2.1 (2026-10-09, main a4a3e67) |
 | R-2 | PASS | PASS | `test_rebuild.lua::R-2 missing > late recipe gets game-built recycling` |
 | R-3 | PASS | PASS | `test_rebuild.lua::R-3 stale > changed source recipe replaces game-built recycling` |
@@ -22,9 +22,9 @@ One row per clause of `docs/REQUIREMENTS.md`. PASS / FAIL / NOT-TESTED per versi
 | S-2 | PASS | PASS | `test_settings.lua::S-2 self-recycling switch > *` (3) |
 | S-3 | NOT-TESTED | NOT-TESTED | `locale/en/locale.cfg` present; headless load no error; in-game display unchecked |
 | L-1 | PASS | PASS | `test_rebuild.lua::L-1 report > log has prefix, counts and per-recipe line` |
-| P-1 | NOT-TESTED | NOT-TESTED | `make zip` listing (L004) |
-| P-2 | NOT-TESTED | NOT-TESTED | `thumbnail.png` 144x144 (L004) |
-| P-3 | NOT-TESTED | NOT-TESTED | `changelog.txt` (L004) |
+| P-1 | PASS | PASS | lane 002 check `zip-2.0`/`zip-2.1` whitelist assert |
+| P-2 | PASS | PASS | `thumbnail.png` 144x144 from `tools/make_thumbnail.py`, regen byte-identical |
+| P-3 | PASS | PASS | lane 002 check `changelog`: `0.2.0`, `0.1.0` blocks |
 | P-4 | PASS | n/a | `make full-check` 2026-10-09 on main a4a3e67: added 2, fixed 5, self 1, excluded 0, `full-check-2.0-ok` |
 
 Owner plants after lane 001 merge (2026-10-09): 8 planted breaches in `scripts/rebuild.lua`, each turned 1-4 owner tests red; restored tree 17/17 green per version.
