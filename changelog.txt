@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2026-10-09
+  Features:
+    - Rebuild missing, stale, and self-recycling recipes with the game's own builder.
+    - Leave hand-made recycling recipes untouched.
+    - Add startup settings `rrf-excluded-items` and `rrf-add-self-recycling`.
+    - Write a log report with recipe changes and counts.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2026-10-09
+  Features:
+    - Rebuild missing, stale, and self-recycling recipes with the game's own builder.
+    - Leave hand-made recycling recipes untouched.
+    - Add startup settings `rrf-excluded-items` and `rrf-add-self-recycling`.
+    - Write a log report with recipe changes and counts.
