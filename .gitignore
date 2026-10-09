@@ -1,0 +1,7 @@
+build/
+dist/
+*.zip
+.env
+.env.*
+.claude/settings.local.json
+__pycache__/

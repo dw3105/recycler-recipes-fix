@@ -1,0 +1,3 @@
+# Load last by dependency depth, not by name
+
+The mod must run its `data-final-fixes.lua` after every recipe-changing mod. Factorio orders mods by dependency depth first and by name only within one depth (2026-10-08 log: `data.lua` order restarts the alphabet at each depth, e.g. `WorkerRobotCargoSizeResearch` before `machine-upgrades`, `planet-rabbasca` last). A `zz-` name prefix only wins against mods of the same depth and is permanent on the mod portal. We keep the name `recycler-recipes-fix` and get late order from hidden optional dependencies `(?) <mod>` on a curated list that includes deep mods, so our depth exceeds theirs. A mod missed by the list is fixed by a release adding it; the log names every change, so misses surface.
