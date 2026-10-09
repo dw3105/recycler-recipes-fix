@@ -1,6 +1,6 @@
 # 001 — rebuild module both versions
 
-Repo `/home/dev_zaigraev_gmail_com/recycler-recipes-fix-mod`.
+Repo `recycler-recipes-fix-mod`. Work ONLY in lane worktree `/home/dev_zaigraev_gmail_com/wt-rrf-001` (branch `lane-001`): every edit and commit there. The main checkout `/home/dev_zaigraev_gmail_com/recycler-recipes-fix-mod` is merge-only; never write to it. Host `dev-vm`.
 
 ## What is true
 
@@ -40,7 +40,7 @@ Green at base, by design: lane001-scope (no diff yet), lane001-frozen (no diff y
 - `scripts/rebuild.lua` (new)
 - `data-final-fixes.lua`
 
-Re-cut because: none
+Re-cut because: attempt 1 wrote into the main checkout, not the worktree (FRC-0001); Repo line now names the worktree.
 
 # bound: 1800s
 
